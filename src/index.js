@@ -9,7 +9,6 @@ import Register from "./pages/Register";
 import Chefs from "./pages/Chefs";
 import MyProfile from "./pages/MyProfile";
 import Recipes from "./pages/Recipes";
-import Modal from "./component/Modal";
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -33,10 +32,6 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
-      },
-      {
-        path: "/Modal",
-        element: <Modal />,
       },
       {
         path: "/MyProfile",
