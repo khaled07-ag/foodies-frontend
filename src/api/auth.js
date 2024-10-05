@@ -16,5 +16,10 @@ const createRecipe = async (
   });
   return response.data;
 };
+const login = async (userInfo) => {
+  const { data } = await instance.post("users/signin", userInfo);
+  storeToken(data.token);
+  return data;
+};
 
-export { createRecipe };
+export { createRecipe, login };
