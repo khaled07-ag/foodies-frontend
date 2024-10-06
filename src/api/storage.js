@@ -1,4 +1,4 @@
-const setToken = (token) => {
+const storeToken = (token) => {
   localStorage.setItem("token", token);
 };
 const getToken = () => {
@@ -15,4 +15,4 @@ const deleteToken = () => {
   localStorage.removeItem("token");
 };
 
-export { setToken, getToken, checkToken, deleteToken };
+export { storeToken, getToken, checkToken, deleteToken };

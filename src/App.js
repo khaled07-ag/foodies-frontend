@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
 import Navbar from "./component/Navbar";
-import UserContext from "./Context/UserContext";
+import UserContext from "./context/UserContext";
 import { useEffect, useState } from "react";
-import { checkToken } from "./api/storage";
+import { checkToken, deleteToken } from "./api/storage";
 
 function App() {
   const [user, setUser] = useState(false);
