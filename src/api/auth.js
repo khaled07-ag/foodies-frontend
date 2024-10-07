@@ -21,5 +21,12 @@ const login = async (userInfo) => {
   storeToken(data.token);
   return data;
 };
-
-export { createRecipe, login };
+const getUser = async () => {
+  const { data } = await instance.get("users/me");
+  return data;
+};
+const updateMyProfile = async (photo) => {
+  const { data } = await instance.put("users/me", { photo });
+  return data;
+};
+export { createRecipe, login, getUser, updateMyProfile };
