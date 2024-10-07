@@ -1,7 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import { deleteToken } from "../api/storage";
+import logo from "../media/logo.png";
 
 const Navbar = () => {
   const [user, setUser] = useContext(UserContext);
@@ -12,63 +13,57 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <div className="flex items-center justify-between h-16">
-          <div className="block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {user ? (
-                <>
-                  <NavLink
-                    to="/"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Recipes
-                  </NavLink>
-                  <NavLink
-                    to="/chefs"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Chef
-                  </NavLink>
-                  <NavLink
-                    to="/MyProfile"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    MyProfile
-                  </NavLink>
-
-                  <NavLink
-                    onClick={handleLogOut}
-                    to="/"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Log out
-                  </NavLink>
-                </>
-              ) : (
-                <>
-                  <NavLink
-                    to="/"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Recipes
-                  </NavLink>
-                  <NavLink
-                    to="/login"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Login
-                  </NavLink>
-                  <NavLink
-                    to="/register"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Register
-                  </NavLink>
-                </>
-              )}
+          <div className="flex items-center">
+            <img src={logo} alt="Logo" className="h-12 w-12 mr-4" />
+            <div className="flex items-baseline space-x-4">
+              <NavLink
+                to="/"
+                className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
+              >
+                Recipes
+              </NavLink>
+              <NavLink
+                to="/categories"
+                className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
+              >
+                Categories
+              </NavLink>
+              <NavLink
+                to="/chefs"
+                className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
+              >
+                Chefs
+              </NavLink>
             </div>
+          </div>
+          <div className="flex items-center">
+            {user ? (
+              <NavLink
+                onClick={handleLogOut}
+                to="/"
+                  className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
+                >
+                Log out
+              </NavLink>
+            ) : (
+              <>
+                <NavLink
+                  to="/login"
+                  className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
+                >
+                  Sign in
+                </NavLink>
+                <NavLink
+                  to="/register"
+                  className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium ml-4 hover:underline hover:font-bold active:underline active:font-bold"
+                >
+                  Sign up
+                </NavLink>
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./component/Navbar";
 import UserContext from "./context/UserContext";
 import { useEffect, useState } from "react";
-import { checkToken, deleteToken } from "./api/storage";
+import { checkToken } from "./api/storage";
 
 function App() {
   const [user, setUser] = useState(false);
