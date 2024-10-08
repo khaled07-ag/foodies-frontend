@@ -6,17 +6,20 @@ const createRecipe = async (
   cuisine,
   ingredients,
   description,
-  image,
-  userId
+  image
 ) => {
-  const response = await instance.post(`/recipes/${userId}`, {
-    mealName: mealName,
-    cuisine: cuisine,
-    ingredients: ingredients,
-    description: description,
-    image: image,
-  });
-  return response.data;
+  try {
+    const response = await instance.post(`/recipes`, {
+      mealName: mealName,
+      cuisine: cuisine,
+      ingredients: ingredients,
+      description: description,
+      image: image,
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const getAllRecipes = async () => {
@@ -81,7 +84,6 @@ const updateCuisineById = async (id, cuisine) => {
   const { data } = await instance.put(`/cuisines/${id}`, cuisine);
   return data;
 };
-
 
 export {
   createRecipe,

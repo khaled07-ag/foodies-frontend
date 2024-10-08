@@ -28,9 +28,9 @@ const Login = () => {
     console.log(user);
   };
 
-  // if (user) {
-  //   return <Navigate to={"/"} />;
-  // }
+  if (user) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <div className="flex h-screen">
       <div className="w-1/2 bg-white p-8 flex flex-col justify-center items-center">
