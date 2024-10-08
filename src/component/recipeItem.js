@@ -92,7 +92,6 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAllRecipes } from "../api/auth";
-
 const RecipeItem = ({ setUsername }) => {
   const { data: recipes } = useQuery({
     queryKey: ["recipes"],
@@ -101,27 +100,34 @@ const RecipeItem = ({ setUsername }) => {
 
   console.log(recipes);
   return (
-    <div className="flex justify-center bg-gray-100 min-h-screen">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-8 max-w-screen-xl">
-        {recipes?.data?.map((recipe) => {
-          return (
-            <div
-              key={recipe.id}
-              onClick={() => setUsername(recipe.user)} // Make the entire card clickable
-              className="flex flex-col items-center bg-white shadow-xl rounded-xl w-full h-96 p-6 hover:shadow-2xl transition-shadow duration-300 cursor-pointer" // Add cursor-pointer for visual feedback
+    <>
+      {recipes?.data?.map((recipe) => {
+        return (
+          <div
+            key={recipe.id}
+            className="flex  justify-around items-center rounded-3xl   shadow-2xl w-[100vh] h-24 m-5"
+          >
+            <img
+              src={"http://localhost:8000/api" + recipe.recipeImage}
+              alt="recipe"
+              className="self-center h-20 w-20 rounded-full justify-start items-center"
+            />
+
+            <h3 className=" w-fit h-fit">{recipe.mealName}</h3>
+            <h3 className=" w-fit h-fit">By: {recipe.user}</h3>
+
+            <button
+              className="bg-orange-600 p-4 rounded-2xl hover:bg-orange-600 hover:scale-110 active:bg-orange-700 active:scale-95"
+              onClick={() => {
+                setUsername(recipe.user);
+              }}
             >
-              <img
-                src={"http://localhost:8000/api" + recipe.recipeImage}
-                alt="recipe"
-                className="h-44 w-44 rounded-full mb-6"
-              />
-              <h3 className="text-xl font-bold mb-2">{recipe.mealName}</h3>
-              <p className="text-sm text-gray-600 mb-6">By: {recipe.user}</p>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+              View Recipes
+            </button>
+          </div>
+        );
+      })}
+    </>
   );
 };
 

@@ -7,91 +7,168 @@ const Modal = ({ show, setShowModal }) => {
   const [mealName, setMealName] = useState("");
   const [cuisine, setCuisine] = useState("");
   const [image, setImage] = useState("");
-  const [ingredients, setIngredients] = useState("");
+  const [ingredients, setIngredients] = useState(["", "", ""]);
   const [description, setDescription] = useState("");
   const bigBoss = useQueryClient();
 
   const { mutate } = useMutation({
-    mutationKey: ["creatOnePet"],
+    mutationKey: ["createRecipe"],
     mutationFn: () =>
       createRecipe(mealName, cuisine, ingredients, description, image),
     onSuccess: () => {
       setShowModal(false);
-      bigBoss.invalidateQueries(["getAllPets"]);
+      bigBoss.invalidateQueries(["getAllRecipes"]);
     },
   });
+
+  const handleIngredientChange = (index, value) => {
+    const newIngredients = [...ingredients];
+    newIngredients[index] = value;
+    setIngredients(newIngredients);
+  };
+
+  const addIngredientField = () => {
+    setIngredients([...ingredients, ""]);
+  };
+
+  const handleSubmit = () => {
+    const filteredIngredients = ingredients.filter((ing) => ing.trim() !== "");
+    console.log({ mealName, cuisine, image, filteredIngredients, description });
+    mutate({
+      mealName,
+      cuisine,
+      image,
+      ingredients: filteredIngredients,
+      description,
+    });
+  };
+
+  const cuisineOptions = [
+    "Italian",
+    "Mexican",
+    "Chinese",
+    "Indian",
+    "Japanese",
+    "French",
+    "Thai",
+    "Greek",
+    "Spanish",
+    "American",
+    // Add more cuisines as needed
+  ];
 
   if (!show) return "";
 
   return (
-    <div
-      className="inset-0 fixed  flex justify-center items-center flex-col z-20 overflow-hidden 
-  "
-    >
-      <div className="bg-black absolute z-0 opacity-70 inset-0 "></div>
-      <div className="relative z-10 flex flex-col gap-3 border-[3px] border-black rounded-md w-[95%] md:w-[40%] h-[300px] md:h-[30%] bg-white pt-[50px]">
-        <button
-          className="right-0 top-2 absolute w-[70px] border border-black rounded-md ml-auto mr-5 hover:bg-red-400"
-          onClick={() => {
-            setShowModal(false);
-          }}
-        >
-          Close
-        </button>
-        <Input
-          name="meal Name"
-          onChange={(e) => {
-            setMealName(e.target.value);
-          }}
-          value={mealName}
-          placeholder="Enter the meal name"
-          required
-        />
-        <Input
-          name="Cuisine"
-          onChange={(e) => {
-            setCuisine(e.target.value);
-          }}
-          value={cuisine}
-          placeholder="Enter the cuisine"
-        />
-        <Input
-          name="meal Image Link"
-          onChange={(e) => {
-            setImage(e.target.value);
-          }}
-          value={image}
-          placeholder="Enter the image link"
-          required
-        />
-        <Input
-          name="Ingredients"
-          onChange={(e) => {
-            setIngredients(e.target.value);
-          }}
-          value={ingredients}
-          placeholder="Enter the ingredients"
-        />
-        <Input
-          name="Description"
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
-          value={description}
-          placeholder="Enter the description"
-          required
-        />
-
-        <button
-          onClick={mutate}
-          className="w-[70px] border border-black rounded-md ml-auto mr-5 hover:bg-green-400"
-          type="submit"
-          disabled={
-            !mealName || !cuisine || !image || !ingredients || !description
-          }
-        >
-          Submit
-        </button>
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div className="absolute inset-0 bg-gray-800 opacity-75"></div>
+      <div className="relative z-10 bg-white rounded-lg shadow-xl w-[95%] md:w-[500px] max-h-[90vh] overflow-y-auto">
+        <div className="px-6 py-4 border-b border-gray-200">
+          <h3 className="text-lg font-semibold text-gray-900">
+            Add New Recipe
+          </h3>
+          <button
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+            onClick={() => setShowModal(false)}
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div className="px-6 py-4 space-y-4">
+          <Input
+            type="text"
+            name="Meal Name"
+            onChange={(e) => setMealName(e.target.value)}
+            value={mealName}
+            placeholder="Enter the meal name"
+            required
+          />
+          <Input
+            type="select"
+            name="Cuisine"
+            onChange={(e) => setCuisine(e.target.value)}
+            value={cuisine}
+            placeholder="Select the cuisine"
+            options={cuisineOptions}
+          />
+          <Input
+            type="text"
+            name="Meal Image Link"
+            onChange={(e) => setImage(e.target.value)}
+            value={image}
+            placeholder="Enter the image link"
+            required
+          />
+          <div className="space-y-2">
+            <label
+              htmlFor="description"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Description
+            </label>
+            <textarea
+              id="description"
+              rows="3"
+              className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+              placeholder="Enter the description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            ></textarea>
+          </div>
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              Ingredients
+            </label>
+            {ingredients.map((ingredient, index) => (
+              <Input
+                key={index}
+                type="text"
+                name={`Ingredient ${index + 1}`}
+                onChange={(e) => handleIngredientChange(index, e.target.value)}
+                value={ingredient}
+                placeholder={`Enter ingredient ${index + 1}`}
+              />
+            ))}
+            <button
+              type="button"
+              onClick={addIngredientField}
+              className="mt-2 px-4 py-2 text-sm font-medium text-indigo-600 bg-indigo-100 border border-transparent rounded-md hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Add Ingredient
+            </button>
+          </div>
+        </div>
+        <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end">
+          <button
+            onClick={() => setShowModal(false)}
+            className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-3"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleSubmit}
+            className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            type="submit"
+            disabled={
+              !mealName || !cuisine || !image || !ingredients || !description
+            }
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );
