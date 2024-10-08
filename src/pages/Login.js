@@ -34,7 +34,10 @@ const Login = () => {
       <div className="w-1/2 bg-white p-8 flex flex-col justify-center items-center">
         <h1 className="text-3xl font-bold mb-4">Sign in</h1>
         <p className="mb-4">
-          No user? <Link to="/register" className="text-blue-600 hover:underline">Sign up</Link>
+          No user?{" "}
+          <Link to="/register" className="text-blue-600 hover:underline">
+            Sign up
+          </Link>
         </p>
         <form onSubmit={handleSubmit} className="w-full max-w-sm">
           <input

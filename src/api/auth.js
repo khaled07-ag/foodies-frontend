@@ -37,6 +37,7 @@ const register = async (userInfo) => {
   storeToken(data.token);
   return data;
 };
+
 const getAllUsers = async () => {
   const { data } = await instance.get("/users");
   return data;
@@ -70,7 +71,6 @@ const updateCuisineById = async (id, cuisine) => {
   const { data } = await instance.put(`/cuisines/${id}`, cuisine);
   return data;
 };
-
 
 export {
   createRecipe,
