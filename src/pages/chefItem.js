@@ -8,7 +8,7 @@ const ChefItem = ({setUsername}) => {
   });
   return (
     <>
-      {users?.map((user) => {
+      {users?.data?.map((user) => {
         return (
           <div
             key={user.id}

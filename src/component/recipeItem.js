@@ -3,12 +3,12 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllRecipes } from "../api/auth";
 const RecipeItem = ({setUsername}) => {
   const { data: recipes } = useQuery({
-    queryKey: ["getAllRecipes"],
+    queryKey: ["recipes"],
     queryFn: getAllRecipes,
   });
   return (
     <>
-      {recipes?.map((recipe) => {
+      {recipes?.data?.map((recipe) => {
         return (
           <div
             key={recipe.id}
