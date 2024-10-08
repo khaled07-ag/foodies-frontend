@@ -41,10 +41,10 @@ const Navbar = () => {
                 Recipes
               </NavLink>
               <NavLink
-                to="/categories"
+                to="/cuisines"
                 className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
               >
-                Categories
+                Cuisines
               </NavLink>
               <NavLink
                 to="/chefs"

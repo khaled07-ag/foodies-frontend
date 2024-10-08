@@ -1,25 +1,11 @@
 import instance from ".";
 import { storeToken } from "./storage";
 //recipes
-const createRecipe = async (
-  mealName,
-  cuisine,
-  ingredients,
-  description,
-  image
-) => {
-  try {
-    const response = await instance.post(`/recipes`, {
-      mealName: mealName,
-      cuisine: cuisine,
-      ingredients: ingredients,
-      description: description,
-      image: image,
-    });
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
+const createRecipe = async (recipe) => {
+  const formData = new FormData();
+  for (const k in recipe) formData.append(k, recipe[k]);
+  const { data } = await instance.post("/recipes", formData);
+  return data;
 };
 
 const getAllRecipes = async () => {
@@ -51,6 +37,7 @@ const register = async (userInfo) => {
   storeToken(data.token);
   return data;
 };
+
 const getAllUsers = async () => {
   const { data } = await instance.get("/users");
   return data;
