@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { login } from "../api/auth";
-import { Link,  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import logo from "../media/logo.png";
 const Login = () => {
@@ -32,7 +32,9 @@ const Login = () => {
     console.log(userInfo);
   };
 
-  
+  if (user) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <div className="flex h-screen">
       <div className="w-1/2 bg-white p-8 flex flex-col justify-center items-center">

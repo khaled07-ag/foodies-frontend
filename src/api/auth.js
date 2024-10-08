@@ -2,10 +2,10 @@ import instance from ".";
 import { storeToken } from "./storage";
 //recipes
 const createRecipe = async (recipe) => {
-const formData = new FormData();
-for (const k in recipe) formData.append(k, recipe[k]);
-const { data } = await instance.post("/recipes", formData);
-return data;
+  const formData = new FormData();
+  for (const k in recipe) formData.append(k, recipe[k]);
+  const { data } = await instance.post("/recipes", formData);
+  return data;
 };
 
 const getAllRecipes = async () => {
