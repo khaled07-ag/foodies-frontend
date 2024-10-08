@@ -22,4 +22,13 @@ const login = async (userInfo) => {
   return data;
 };
 
-export { createRecipe, login };
+const register = async (userInfo) => {
+  const formData = new FormData();
+  for (const key in userInfo) formData.append(key, userInfo[key]);
+
+  const { data } = await instance.post("users/signup", formData);
+  storeToken(data.token);
+  return data;
+};
+
+export { createRecipe, login, register };
