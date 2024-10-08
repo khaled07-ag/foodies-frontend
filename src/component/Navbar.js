@@ -44,8 +44,8 @@ const Navbar = () => {
               <NavLink
                 onClick={handleLogOut}
                 to="/"
-                  className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
-                >
+                className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
+              >
                 Log out
               </NavLink>
             ) : (
