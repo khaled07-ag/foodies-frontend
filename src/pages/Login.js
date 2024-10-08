@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { login } from "../api/auth";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import logo from "../media/logo.png";
 const Login = () => {
@@ -32,9 +32,7 @@ const Login = () => {
     console.log(userInfo);
   };
 
-  // if (user) {
-  //   return <Navigate to={"/"} />;
-  // }
+  
   return (
     <div className="flex h-screen">
       <div className="w-1/2 bg-white p-8 flex flex-col justify-center items-center">
@@ -47,11 +45,12 @@ const Login = () => {
         </p>
         <form onSubmit={handleSubmit} className="w-full max-w-sm">
           <input
-            type="email"
-            name="email"
-            placeholder="email:"
+            type="username"
+            name="name"
+            placeholder="username:"
             onChange={handleChange}
             className="w-full px-3 py-2 mb-3 border border-gray-300 rounded"
+            required
           />
           <input
             type="password"
@@ -59,6 +58,7 @@ const Login = () => {
             placeholder="password:"
             onChange={handleChange}
             className="w-full px-3 py-2 mb-4 border border-gray-300 rounded"
+            required
           />
           <button
             type="submit"

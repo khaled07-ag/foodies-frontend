@@ -48,7 +48,7 @@ import { getAllRecipes } from "../api/auth";
 
 const RecipeItem = ({ setUsername }) => {
   const { data: recipes } = useQuery({
-    queryKey: ["getAllRecipes"],
+    queryKey: ["recipes"],
     queryFn: getAllRecipes,
   });
 
