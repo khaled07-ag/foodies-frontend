@@ -1,24 +1,23 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAllRecipes } from "../api/auth";
-const RecipeItem = ({setUsername}) => {
+const RecipeItem = ({ setUsername }) => {
   const { data: recipes } = useQuery({
     queryKey: ["getAllRecipes"],
     queryFn: getAllRecipes,
   });
+
+  console.log(recipes);
   return (
     <>
-      {recipes?.map((recipe) => {
+      {recipes?.data?.map((recipe) => {
         return (
           <div
             key={recipe.id}
             className="flex  justify-around items-center rounded-3xl   shadow-2xl w-[100vh] h-24 m-5"
-            
           >
             <img
-              src={
-                "http://localhost:8000/api" + recipe.recipeImage
-              }
+              src={"http://localhost:8000/api" + recipe.recipeImage}
               alt="recipe"
               className="self-center h-20 w-20 rounded-full justify-start items-center"
             />
@@ -37,7 +36,6 @@ const RecipeItem = ({setUsername}) => {
           </div>
         );
       })}
-
     </>
   );
 };
