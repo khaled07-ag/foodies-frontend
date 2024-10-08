@@ -61,7 +61,7 @@ const CuisineItem = ({ setUsername }) => {
                 className="h-44 w-44 rounded-full mb-6"
               />
               <h3 className="text-xl font-bold mb-2">{cuisine.name}</h3>
-              <p className="text-sm text-gray-600 mb-6">By: {cuisine.user}</p>
+              
             </div>
           );
         })}

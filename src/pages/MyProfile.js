@@ -34,7 +34,7 @@ const MyProfile = () => {
       <div className="flex flex-col items-center justify-center">
         <img
           src={
-            "http://localhost:8000/api" + myProfile?.image
+            "http://localhost:8000/" + myProfile?.image
           }
           alt="profile"
         />
