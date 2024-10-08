@@ -1,29 +1,35 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { login } from "../api/auth";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import logo from "../media/logo.png";
 const Login = () => {
-  const [userInfo, setUserInfo] = useState({});
   const navigate = useNavigate();
   const [user, setUser] = useContext(UserContext);
-  const [login, setLogin] = useState(false);
-
-  const { mutate, isLoading } = useMutation({
-    mutationKey: ["login"],
-    mutationFn: login,
-  });
   const handleChange = (e) => {
-    setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setUser((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+  const { mutate } = useMutation({
+    mutationKey: ["login"],
+    mutationFn: () => login(user),
+    onSuccess: () => {
+      navigate("/Home");
+      setUser(true);
+    },
+    onError: () => {
+      alert("Invalid username or password");
+    },
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     mutate();
-    console.log(userInfo);
+    console.log(user);
   };
+
   if (user) {
-    return <Navigate to={"/Home"} />;
+    return <Navigate to={"/"} />;
   }
   return (
     <div className="flex h-screen">
