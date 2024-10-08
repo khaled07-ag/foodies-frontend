@@ -59,7 +59,7 @@ const Registration = () => {
   };
 
   if (user) {
-    return <Navigate to={"/Home"} />;
+    return <Navigate to={"/"} />;
   }
 
   return (
