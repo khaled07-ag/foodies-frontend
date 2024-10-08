@@ -16,18 +16,12 @@ const Modal = ({ show, setShowModal }) => {
     mutationFn: () =>
       createRecipe(mealName, cuisine, ingredients, description, image),
     onSuccess: () => {
-      // alert("ADDED PET!!!!");
       setShowModal(false);
       bigBoss.invalidateQueries(["getAllPets"]);
     },
   });
 
   if (!show) return "";
-
-  // const handelCreatePet = async () => {
-  //   const res = await creatPet(name, image, type, available);
-  //   console.log(res);
-  // };
 
   return (
     <div
@@ -49,37 +43,53 @@ const Modal = ({ show, setShowModal }) => {
           onChange={(e) => {
             setMealName(e.target.value);
           }}
+          value={mealName}
+          placeholder="Enter the meal name"
+          required
         />
         <Input
           name="Cuisine"
           onChange={(e) => {
             setCuisine(e.target.value);
           }}
+          value={cuisine}
+          placeholder="Enter the cuisine"
         />
         <Input
           name="meal Image Link"
           onChange={(e) => {
             setImage(e.target.value);
           }}
+          value={image}
+          placeholder="Enter the image link"
+          required
         />
         <Input
           name="Ingredients"
           onChange={(e) => {
             setIngredients(e.target.value);
           }}
+          value={ingredients}
+          placeholder="Enter the ingredients"
         />
         <Input
           name="Description"
           onChange={(e) => {
             setDescription(e.target.value);
           }}
+          value={description}
+          placeholder="Enter the description"
+          required
         />
 
         <button
           onClick={mutate}
           className="w-[70px] border border-black rounded-md ml-auto mr-5 hover:bg-green-400"
+          type="submit"
+          disabled={
+            !mealName || !cuisine || !image || !ingredients || !description
+          }
         >
-          {/* <button onClick={handelCreatePet} className="w-[70px] border border-black rounded-md ml-auto mr-5 hover:bg-green-400"> */}
           Submit
         </button>
       </div>
