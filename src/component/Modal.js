@@ -61,8 +61,8 @@ const Modal = ({ show, setShowModal }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="absolute inset-0 bg-gray-800 opacity-75"></div>
-      <div className="relative z-10 bg-white rounded-lg shadow-xl w-[95%] md:w-[500px] max-h-[90vh] overflow-y-auto">
+      <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+      <div className="relative z-10 bg-white rounded-xl shadow-2xl w-[95%] md:w-[550px] max-h-[90vh] overflow-y-auto">
         <div className="px-6 py-4 border-b border-gray-200">
           <h3 className="text-lg font-semibold text-gray-900">
             Add New Recipe
@@ -102,6 +102,7 @@ const Modal = ({ show, setShowModal }) => {
             value={cuisine}
             placeholder="Select the cuisine"
             options={cuisineOptions}
+            className="bg-blue-500 border border-gray-300 rounded-md"
           />
           <Input
             type="text"

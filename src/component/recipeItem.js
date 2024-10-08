@@ -117,7 +117,7 @@ const RecipeItem = ({ setUsername }) => {
             <h3 className=" w-fit h-fit">By: {recipe.user}</h3>
 
             <button
-              className="bg-orange-600 p-4 rounded-2xl hover:bg-orange-600 hover:scale-110 active:bg-orange-700 active:scale-95"
+              className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700  p-4 rounded-2xl hover:bg-orange-600 hover:scale-110 active:bg-orange-700 active:scale-95"
               onClick={() => {
                 setUsername(recipe.user);
               }}
