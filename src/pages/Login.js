@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { login } from "../api/auth";
 import { Link,  useNavigate } from "react-router-dom";
@@ -7,12 +7,16 @@ import logo from "../media/logo.png";
 const Login = () => {
   const navigate = useNavigate();
   const [user, setUser] = useContext(UserContext);
+  const [userInfo, setUserInfo] = useState({
+    email: "",
+    password: "",
+  });
   const handleChange = (e) => {
-    setUser((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   const { mutate } = useMutation({
     mutationKey: ["login"],
-    mutationFn: () => login(user),
+    mutationFn: () => login(userInfo),
     onSuccess: () => {
       navigate("/");
       setUser(true);
@@ -25,7 +29,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     mutate();
-    console.log(user);
+    console.log(userInfo);
   };
 
   
