@@ -17,14 +17,14 @@ const CuisineItem = () => {
           >
             <img
               src={
-                "http://localhost:8000/api" + cuisine.cuisineImage
+                "http://localhost:8000/" + cuisine.cuisineImage
               }
               alt="recipe"
               className="self-center h-20 w-20 rounded-full justify-start items-center"
             />
 
             <h3 className=" w-fit h-fit">{cuisine.name}</h3>
-            <h3 className=" w-fit h-fit">By: {cuisine.user}</h3>
+            
 
             <button
               className="bg-orange-600 p-4 rounded-2xl hover:bg-orange-600 hover:scale-110 active:bg-orange-700 active:scale-95"

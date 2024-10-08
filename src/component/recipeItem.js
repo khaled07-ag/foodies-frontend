@@ -63,7 +63,7 @@ const RecipeItem = ({ setUsername }) => {
               className="flex flex-col items-center bg-white shadow-xl rounded-xl w-full h-96 p-6 hover:shadow-2xl transition-shadow duration-300"
             >
               <img
-                src={"http://localhost:8000/api" + recipe.recipeImage}
+                src={"http://localhost:8000/" + recipe.recipeImage}
                 alt="recipe"
                 className="h-44 w-44 rounded-full mb-6"
               />

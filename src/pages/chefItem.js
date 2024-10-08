@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAllUsers } from "../api/auth";
-const ChefItem = ({setUsername}) => {
+const ChefItem = () => {
   const { data: users } = useQuery({
     queryKey: ["users"],
     queryFn: getAllUsers,
@@ -17,7 +17,7 @@ const ChefItem = ({setUsername}) => {
           >
             <img
               src={
-                "http://localhost:8000/api" + user.userImage
+                "http://localhost:8000/" + user.userImage
               }
               alt="user"
               className="self-center h-20 w-20 rounded-full justify-start items-center"
@@ -28,9 +28,8 @@ const ChefItem = ({setUsername}) => {
             <h3 className=" w-fit h-fit">Cuisines: {user.cuisines}</h3>
             <button
               className="bg-orange-600 p-4 rounded-2xl hover:bg-orange-600 hover:scale-110 active:bg-orange-700 active:scale-95"
-              onClick={() => {
-                setUsername(user.username);
-              }}
+              
+              
             >
               View Recipes
             </button>
