@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import RecipeItem from "../component/recipeItem";
+import RecipeDetail from "../component/RecipeDetail";
 
 const Recipes = () => {
   // usequery -> get all recipes

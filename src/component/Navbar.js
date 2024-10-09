@@ -36,19 +36,19 @@ const Navbar = () => {
             <div className="flex items-baseline space-x-4">
               <NavLink
                 to="/"
-                className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                className="bg-gradient-to-r  hover:from-gray-100 hover:to-gray-200 text-black font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 mr-4"
               >
                 Recipes
               </NavLink>
               <NavLink
                 to="/cuisines"
-                className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                className="bg-gradient-to-r  hover:from-gray-100 hover:to-gray-200 text-black font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 mr-4"
               >
                 Cuisines
               </NavLink>
               <NavLink
                 to="/chefs"
-                className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                className="bg-gradient-to-r  hover:from-gray-100 hover:to-gray-200 text-black font-semibold py-2 px-6 rounded-full  transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 mr-4"
               >
                 Chefs
               </NavLink>
@@ -60,7 +60,7 @@ const Navbar = () => {
                 <div className="flex-grow flex justify-center">
                   <button
                     onClick={openModal}
-                    className="bg-gradient-to-r from-orange-800 to-orange-900 hover:from-orange-800 hover:to-orange-900 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    className="bg-gradient-to-r  hover:from-gray-100 hover:to-gray-200 text-black font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 mr-4"
                   >
                     + Add Recipe
                   </button>
@@ -69,7 +69,7 @@ const Navbar = () => {
                 <NavLink
                   onClick={handleLogOut}
                   to="/"
-                  className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                  className="bg-gradient-to-r  hover:from-gray-100 hover:to-gray-200 text-black font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 mr-4"
                 >
                   Log out
                 </NavLink>
@@ -78,13 +78,13 @@ const Navbar = () => {
               <>
                 <NavLink
                   to="/login"
-                  className="bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition duration-300 ease-in-out"
+                  className="bg-gradient-to-r hover:from-gray-100 hover:to-gray-200 text-black font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 active:ring-2 active:ring-gray-500 active:ring-opacity-50 mr-4"
                 >
                   Sign in
                 </NavLink>
                 <NavLink
                   to="/register"
-                  className="bg-green-500 text-white px-4 py-2 rounded-md text-sm font-medium ml-4 hover:bg-green-600 transition duration-300 ease-in-out"
+                  className="bg-gradient-to-r  hover:from-gray-100 hover:to-gray-200 text-black font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 mr-4"
                 >
                   Sign up
                 </NavLink>
