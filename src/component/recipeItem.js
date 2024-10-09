@@ -105,22 +105,22 @@ const RecipeItem = ({ setUsername }) => {
         return (
           <div
             key={recipe.id}
-            className="flex  justify-around items-center rounded-3xl   shadow-2xl w-[100vh] h-24 m-5"
+            className="flex flex-col  justify-around items-center rounded-3xl   shadow-2xl w-[30%] p-5"
           >
             <img
-              src={"http://localhost:8000/api" + recipe.recipeImage}
+              src={"http://localhost:8000/" + recipe.recipeImage}
               alt="recipe"
               className="self-center h-20 w-20 rounded-full justify-start items-center"
             />
 
             <h3 className=" w-fit h-fit">{recipe.mealName}</h3>
-            <h3 className=" w-fit h-fit">By: {recipe.user}</h3>
+            <h3 className=" w-fit h-fit">By: {recipe?.user?.name}</h3>
 
             <button
               className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700  p-4 rounded-2xl hover:bg-orange-600 hover:scale-110 active:bg-orange-700 active:scale-95"
-              onClick={() => {
-                setUsername(recipe.user);
-              }}
+              // onClick={() => {
+              //   setUsername(recipe.user);
+              // }}
             >
               View Recipes
             </button>

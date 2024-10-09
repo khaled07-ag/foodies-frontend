@@ -14,7 +14,7 @@ const Modal = ({ show, setShowModal }) => {
   const { mutate } = useMutation({
     mutationKey: ["createRecipe"],
     mutationFn: () =>
-      createRecipe(mealName, cuisine, ingredients, description, image),
+      createRecipe({ mealName, cuisine, ingredients, description, image }),
     onSuccess: () => {
       setShowModal(false);
       bigBoss.invalidateQueries(["getAllRecipes"]);

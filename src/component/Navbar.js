@@ -60,7 +60,7 @@ const Navbar = () => {
                 <div className="flex-grow flex justify-center">
                   <button
                     onClick={openModal}
-                    className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    className="bg-gradient-to-r from-orange-800 to-orange-900 hover:from-orange-800 hover:to-orange-900 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                   >
                     + Add Recipe
                   </button>
