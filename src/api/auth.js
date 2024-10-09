@@ -42,8 +42,13 @@ const getAllUsers = async () => {
   const { data } = await instance.get("/users");
   return data;
 };
-const getUserById = async (id) => {
+const getOneUser = async (id) => {
   const { data } = await instance.get(`/users/${id}`);
+  return data;
+};
+
+const getMyProfile = async () => {
+  const { data } = await instance.get(`/users/profile`);
   return data;
 };
 const updateMyProfile = async (id, photo) => {
@@ -80,7 +85,7 @@ export {
   getAllRecipes,
   getRecipeById,
   register,
-  getUserById,
+  getMyProfile,
   deleteRecipeById,
   updateRecipeById,
   getAllCuisines,
@@ -88,4 +93,5 @@ export {
   deleteCuisineById,
   updateCuisineById,
   getCuisineById,
+  getOneUser,
 };
