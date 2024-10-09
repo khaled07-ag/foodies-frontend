@@ -56,7 +56,7 @@ const CuisineItem = ({ setUsername }) => {
               className="flex flex-col items-center bg-white shadow-xl rounded-xl w-full h-96 p-6 hover:shadow-2xl transition-shadow duration-300 cursor-pointer" // Add cursor-pointer for visual feedback
             >
               <img
-                src={"http://localhost:8000/api" + cuisine.cuisineImage}
+                src={"http://localhost:8000/" + cuisine.cuisineImage}
                 alt={cuisine.name}
                 className="h-44 w-44 rounded-full mb-6"
               />
