@@ -1,16 +1,13 @@
 import React, { useContext, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { login } from "../api/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import logo from "../media/logo.png";
 const Login = () => {
   const navigate = useNavigate();
   const [user, setUser] = useContext(UserContext);
-  const [userInfo, setUserInfo] = useState({
-    email: "",
-    password: "",
-  });
+  const [userInfo, setUserInfo] = useState({});
   const handleChange = (e) => {
     setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -49,6 +46,7 @@ const Login = () => {
           <input
             type="username"
             name="name"
+            id="username"
             placeholder="username:"
             onChange={handleChange}
             className="w-full px-3 py-2 mb-3 border border-gray-300 rounded"
@@ -57,6 +55,7 @@ const Login = () => {
           <input
             type="password"
             name="password"
+            id="password"
             placeholder="password:"
             onChange={handleChange}
             className="w-full px-3 py-2 mb-4 border border-gray-300 rounded"

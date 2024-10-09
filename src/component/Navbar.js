@@ -36,19 +36,19 @@ const Navbar = () => {
             <div className="flex items-baseline space-x-4">
               <NavLink
                 to="/"
-                className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
+                className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
               >
                 Recipes
               </NavLink>
               <NavLink
                 to="/cuisines"
-                className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
+                className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
               >
                 Cuisines
               </NavLink>
               <NavLink
                 to="/chefs"
-                className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
+                className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
               >
                 Chefs
               </NavLink>
@@ -57,17 +57,19 @@ const Navbar = () => {
           <div className="flex items-center">
             {user ? (
               <>
-                <button
-                  onClick={openModal}
-                  className="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                >
-                  Add Recipe
-                </button>
+                <div className="flex-grow flex justify-center">
+                  <button
+                    onClick={openModal}
+                    className="bg-gradient-to-r from-orange-800 to-orange-900 hover:from-orange-800 hover:to-orange-900 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                  >
+                    + Add Recipe
+                  </button>
+                </div>
 
                 <NavLink
                   onClick={handleLogOut}
                   to="/"
-                  className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
+                  className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                 >
                   Log out
                 </NavLink>
@@ -76,13 +78,13 @@ const Navbar = () => {
               <>
                 <NavLink
                   to="/login"
-                  className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:underline hover:font-bold active:underline active:font-bold"
+                  className="bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition duration-300 ease-in-out"
                 >
                   Sign in
                 </NavLink>
                 <NavLink
                   to="/register"
-                  className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium ml-4 hover:underline hover:font-bold active:underline active:font-bold"
+                  className="bg-green-500 text-white px-4 py-2 rounded-md text-sm font-medium ml-4 hover:bg-green-600 transition duration-300 ease-in-out"
                 >
                   Sign up
                 </NavLink>
