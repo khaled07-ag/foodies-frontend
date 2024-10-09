@@ -73,6 +73,12 @@ const Navbar = () => {
                 >
                   Log out
                 </NavLink>
+                <NavLink
+                  to="/MyProfile"
+                  className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                >
+                  My Profile
+                </NavLink>
               </>
             ) : (
               <>
