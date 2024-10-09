@@ -76,9 +76,13 @@ const updateCuisineById = async (id, cuisine) => {
   const { data } = await instance.put(`/cuisines/${id}`, cuisine);
   return data;
 };
-
+const getOneRecipe = async (id) => {
+  const { data } = await instance.get(`/recipes/${id}`);
+  return data;
+};
 export {
   createRecipe,
+  getOneRecipe,
   login,
   getAllUsers,
   updateMyProfile,
