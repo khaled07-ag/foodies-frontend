@@ -36,20 +36,15 @@ const MyProfile = () => {
     <div className="flex flex-col items-center justify-center bg-white text-white">
       <div className="w-full max-w-md bg-white rounded-b-3xl shadow-lg overflow-hidden">
         <div className="bg-orange-500 p-6 pb-32 relative">
-          <div className="text-center mb-4">
-            <p className="text-2xl font-light">"Live happy always"</p>
-          </div>
-          <div className="flex justify-between mb-4">
-            <div>
-              <p className="text-3xl font-bold">
+          
+          <div className="flex justify-center items-center mb-4">
+            <div className="flex flex-col justify-center p-4 items-center">
+              <p className="text-3xl  font-bold justify-center align-middle">
                 {myProfile?.data?.recipes?.length}
               </p>
               <p>Recipes</p>
             </div>
-            <div>
-              <p className="text-3xl font-bold">32</p>
-              <p>Following</p>
-            </div>
+           
           </div>
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
             <img
@@ -84,15 +79,11 @@ const MyProfile = () => {
             </div>
             <div className="border border-orange-500 text-orange-500 p-3 rounded-lg flex-grow ml-4">
               <div className="flex items-center justify-between">
-                <span>Profile</span>
-                <span className="text-sm">70%</span>
+                <span>Description:</span>
+                <span className="text-sm">{myProfile?.data?.description}</span>
               </div>
-              <div className="w-full bg-gray-200 rounded-full  mt-2">
-                <div
-                  className="bg-orange-500 h-2.5 rounded-full"
-                  style={{ width: "70%" }}
-                ></div>
-              </div>
+             
+              
             </div>
           </div>
           <div className="flex justify-between">
@@ -108,7 +99,7 @@ const MyProfile = () => {
               <img
                 src={"http://localhost:8000/" + recipe.recipeImage}
                 alt={recipe.name}
-                className="w-full h-12 object-cover rounded"
+                className="w-full h-12 object-cover rounded-full"
               />
             
               <p className="text-gray-800">{recipe.mealName}</p>
