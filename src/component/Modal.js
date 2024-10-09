@@ -104,11 +104,10 @@ const Modal = ({ show, setShowModal }) => {
             options={cuisineOptions}
             className="bg-blue-500 border border-gray-300 rounded-md"
           />
-          <Input
-            type="text"
+          <input
+            type="file"
             name="Meal Image Link"
-            onChange={(e) => setImage(e.target.value)}
-            value={image}
+            onChange={(e) => setImage(e.target.files[0])}
             placeholder="Enter the image link"
             required
           />
