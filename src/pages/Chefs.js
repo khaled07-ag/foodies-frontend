@@ -4,7 +4,7 @@ const Chefs = () => {
   const [username, setUsername] = useState("");
 
   return (
-    <div className="flex flex-row items-center justify-center h-1/2">
+    <div className="flex flex-wrap items-center justify-center gap-4">
       <ChefItem setUsername={setUsername} />
     </div>
   );
