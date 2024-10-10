@@ -12,6 +12,8 @@ import Recipes from "./pages/Recipes";
 import Cuisines from "./pages/cuisines";
 import Modal from "./component/Modal";
 import RecipeDetail from "./component/RecipeDetail";
+import CuisineDetail from "./pages/CuisineDetail";
+import ChefDetail from "./component/chefDetail";
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -49,8 +51,16 @@ const router = createBrowserRouter([
         element: <RecipeDetail />,
       },
       {
+        path: "/cuisines/:id",
+        element: <CuisineDetail />,
+      },
+      {
         path: "/add",
         element: <Modal />,
+      },
+      {
+        path: "/users/:id",
+        element: <ChefDetail />,
       },
     ],
   },

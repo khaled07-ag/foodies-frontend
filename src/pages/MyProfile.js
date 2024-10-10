@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import { getMyProfile, updateMyProfile } from "../api/auth";
 import pic from "../media/profile-pic-placeholder.png";
-
+import { useNavigate } from "react-router-dom";
 const MyProfile = () => {
+  const navigate = useNavigate();
   const [photo, setPhoto] = useState(pic);
 
   const queryClient = useQueryClient();
@@ -35,7 +36,7 @@ const MyProfile = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-white text-white">
       <div className="w-full max-w-md bg-white rounded-b-3xl shadow-lg overflow-hidden">
-        <div className="bg-orange-500 p-6 pb-32 relative">
+        <div className="bg-red-700 p-6 pb-32 relative">
           
           <div className="flex justify-center items-center mb-4">
             <div className="flex flex-col justify-center p-4 items-center">
@@ -71,14 +72,14 @@ const MyProfile = () => {
             </p>
           </div>
           <div className="flex justify-between mb-4">
-            <div className="bg-orange-500 text-white p-3 rounded-lg">
+            {/* <div className="bg-orange-500 text-white p-3 rounded-lg">
               <p className="text-2xl font-bold">
                 {myProfile?.data?.recipes?.length}
               </p>
               <p className="text-sm">👥</p>
-            </div>
-            <div className="border border-orange-500 text-orange-500 p-3 rounded-lg flex-grow ml-4">
-              <div className="flex items-center justify-between">
+            </div> */}
+            <div className="border border-red-700 text-red-700 p-3 rounded-lg flex-grow ml-4">
+              <div className="flex items-center p-3 justify-between">
                 <span>Description:</span>
                 <span className="text-sm">{myProfile?.data?.description}</span>
               </div>
@@ -92,18 +93,20 @@ const MyProfile = () => {
           </div>
         </div>
       </div>
-      <div className="flex gap-5 justify-between mt-4 flex-wrap ">
+      <div className="flex gap-6 justify-between mt-4 flex-wrap ">
         {myProfile?.data?.recipes?.map((recipe) => (
-          <div className="bg-white border border-gray-300 p-3 rounded-lg flex-1 ml-2 relative">
+          <div className="bg-white border w-80 h-auto border-gray-300 p-3 rounded-lg flex-1 ml-2 relative"
+          onClick={() => navigate(`/recipes/${recipe._id}`)}>
             <div key={recipe._id} className="flex flex-col gap-2">
               <img
                 src={"http://localhost:8000/" + recipe.recipeImage}
-                alt={recipe.name}
-                className="w-full h-12 object-cover rounded-full"
+                alt={recipe.mealName}
+                className="w-full p-3 h-auto object-cover rounded-full"
+                
               />
             
               <p className="text-gray-800">{recipe.mealName}</p>
-            </div>
+            </div> 
           </div>
         ))}
       </div>
