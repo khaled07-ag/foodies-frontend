@@ -47,13 +47,8 @@ const Modal = ({ show, setShowModal }) => {
     "Italian",
     "Mexican",
     "Chinese",
-    "Indian",
-    "Japanese",
-    "French",
-    "Thai",
-    "Greek",
-    "Spanish",
     "American",
+    "Kuwaiti",
     // Add more cuisines as needed
   ];
 
